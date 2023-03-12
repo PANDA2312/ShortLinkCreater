@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Au的短链接站</title>
+</head>
+<body>
+    <p>目标链接:</p>
+    <textarea id="txtBox" rows="1" cols="30"></textarea>
+    <button onclick="generate()">生成</button>
+    <div id="txtHint"><b></b></div>
+    <script>
+        function generate() {
+            if (window.XMLHttpRequest) {
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", (("mysql.php?url=" + document.getElementById('txtBox').value).replace("https://", "")).replace("http://", ""), true);
+            xmlhttp.send();
+        }
+    </script>
+
+
+</body>
+
+    
+</html>
