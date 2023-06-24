@@ -1,5 +1,5 @@
 ﻿<?php
-$con = mysqli_connect("localhost","s1622997","12345678","s1622997");
+$con = mysqli_connect("localhost","user","password","database");
 if (!$con)
 {
     die('Could not connect: ' . mysqli_error($con));
