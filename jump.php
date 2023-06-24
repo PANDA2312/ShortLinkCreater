@@ -4,9 +4,9 @@ if (!$con)
 {
     die('Could not connect: ' . mysqli_error($con));
 }
-$arg = $_GET['code'];
+$arg = $_GET['c'];
 mysqli_set_charset($con, "utf8");
-$sql="SELECT * FROM `linkData` WHERE linkNum = ".str_replace("c","",$arg);
+$sql="SELECT * FROM `linkData` WHERE linkNum = ";
 $result = mysqli_query($con,$sql);
 $row = mysqli_fetch_array($result);
 mysqli_close($con);
